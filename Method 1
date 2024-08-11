@@ -1,0 +1,34 @@
+#include<bits/stdc++.h>
+using namespace std;
+
+int main(){
+
+   int n;
+   cin>>n;
+
+   int arr[n];
+   for(int i=0; i<n; i++)
+     cin>>arr[i];
+
+   int k;
+   cin>>k;
+
+   int x = n/k;
+
+   for(int i=0; i<n; i++){
+
+     int count = 1;
+
+     if(arr[i] != -1){
+         for(int j=i+1; j<n; j++){
+
+            if(arr[i]==arr[j]){
+                 count++;
+                 arr[j] = -1; //set that visited element to -1 to avoid repetition
+            }
+         }
+     }
+     if(count > x) cout<<arr[i]<<" ";
+    }
+
+}
